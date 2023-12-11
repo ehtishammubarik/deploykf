@@ -29,6 +29,15 @@ deploykf_dependencies:
     ##
     extraManifests:
      - |
+       apiVersion: v1
+       kind: Secret
+       metadata:
+         name: cloudflare-api-token-cert
+         namespace: cert-manager
+       type: Opaque
+       stringData:
+         api-token: yoHRHp4Ey-tINSH8m8voXjdNV1PTeLQTAXmzIFjo
+       ---
        apiVersion: cert-manager.io/v1
        kind: ClusterIssuer
        metadata:
