@@ -13,7 +13,7 @@ spec:
     ##  - we use the 'deploykf/deploykf' repo so we can read its 'sample-values.yaml'
     ##    file, but you may use any repo (even one with no files)
     ##
-    repoURL: "https://git.aceso.no/aceso/deployKF.git"
+    repoURL: "https://github.com/ehtishammubarik/deploykf.git"
     targetRevision: "v0.1.2" # <-- replace with a deployKF repo tag!
     path: "."
 
