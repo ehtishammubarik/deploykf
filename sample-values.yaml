@@ -114,7 +114,7 @@ deploykf_dependencies:
               solvers:
               - dns01:
                   cloudflare:
-                    email: yoHRHp4Ey-tINSH8m8voXjdNV1PTeLQTAXmzIFjo
+                    email: ehtisham@aceso.no
                     apiTokenSecretRef:
                       name: cloudflare-api-token
                       key: api-token
