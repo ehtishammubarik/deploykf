@@ -269,8 +269,8 @@ deploykf_core:
     gateway:
       hostname: deploykf.stack8s.com
       ports:
-        http: 8080
-        https: 8443
+        http: 80
+        https: 443
       selectorLabels:
         app: deploykf-gateway
         istio: deploykf-gateway
