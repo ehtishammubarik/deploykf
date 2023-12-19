@@ -256,7 +256,7 @@ deploykf_core:
     gatewayService:
       name: deploykf-gateway
       annotations: {}
-      type: LoadBalancer
+      type: ClusterIP
 
 
   ## --------------------------------------

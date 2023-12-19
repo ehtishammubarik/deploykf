@@ -32,7 +32,7 @@ ARGOCD_PRUNE_PROMPT_SECONDS="30"
 
 # timeouts for argocd commands
 ARGOCD_SYNC_TIMEOUT_SECONDS="600"
-ARGOCD_WAIT_TIMEOUT_SECONDS="300"
+ARGOCD_WAIT_TIMEOUT_SECONDS="500"
 
 #######################################
 # REQUIREMENTS
@@ -297,7 +297,7 @@ function sync_argocd() {
   local _app_operation_state
   local _app_operation_state_phase
   local _app_resources
-  for _app_name in $(argocd app list -l "$_app_selector" -N "$_app_namespace" -o "name"); do
+  for _app_name in $(argocd app list -l "$_app_selector"  -o "name"); do
 
     # get the application as JSON (and refresh at same time)
     _app_json=$(argocd app get "$_app_name" -o json --refresh)
