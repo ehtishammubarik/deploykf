@@ -322,9 +322,54 @@ deploykf_dependencies:
     ##  - a list of extra kubernetes resources to allow kyverno to generate and manage
     ##  - each element is a map with keys `apiGroups` and `resources` that contain lists of strings
     ##
-    extraResourceRules:
-      - apiGroups: [ "kubeflow.org" ]
-        resources: [ "poddefaults" ]
+    extraResourceRules: []
+
+    ## kyverno admission controller configs
+    ##
+    admissionController:
+      replicas: 3
+
+    ## kyverno background controller configs
+    ##
+    backgroundController:
+      replicas: 1
+
+    ## kyverno cleanup controller configs
+    ##
+    cleanupController:
+      replicas: 1
+
+    ## kyverno reports controller configs
+    ##
+    reportsController:
+      replicas: 1
+
+    ## kyverno policy configs
+    ##
+    clusterPolicies:
+
+      ## a policy to automatically replicate and inject pod imagePullSecrets
+      ##  - this policy is useful for ~private~ container registries or avoiding ~pull limits~
+      ##
+      imagePullSecrets:
+        enabled: false
+
+        ## a list of namespaces to exclude from this policy
+        ##  - note, all namespaces are included except those excluded here (and the `kyverno.namespace`)
+        ##  - wildcards are supported "*" (zero or many characters) and “?” (at least one character)
+        ##
+        excludeNamespaces:
+          - "argocd"
+          - "kube-system"
+
+        ## a list of registry credentials
+        ##  - each element is a map with the following keys:
+        ##     - `existingSecret`: the name of an existing 'kubernetes.io/dockerconfigjson' type secret
+        ##     - `existingSecretNamespace`: the namespace containing the existing secret (default: `kyverno.namespace`)
+        ##  - for more information on creating a registry secret, see:
+        ##    https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+        ##
+        registryCredentials: []
 
 
 ## --------------------------------------------------------------------------------
@@ -364,7 +409,7 @@ deploykf_core:
 
       oauth2Proxy:
         repository: quay.io/oauth2-proxy/oauth2-proxy
-        tag: v7.4.0
+        tag: v7.5.1
         pullPolicy: IfNotPresent
 
       kubectl:
@@ -467,6 +512,13 @@ deploykf_core:
             existingSecret: ""
             existingSecretKey: "client_secret"
             generateSecret: false
+
+        ## OpenID client for Kubeflow Pipelines SDK
+        ##  - note, this client is used on end-user machines, so it does not have a client secret
+        ##
+        kubeflowPipelinesSDK:
+          enabled: true
+          clientId: "kubeflow-pipelines-sdk"
 
     ## oauth2-proxy configs
     ##
@@ -598,7 +650,7 @@ deploykf_core:
     gateway:
       name: deploykf-gateway
 
-      hostname: deploykf.rcluster.stack8s.com
+      hostname: deploykf.example.com
       ports:
         http: 80
         https: 443
@@ -1242,7 +1294,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.rcluster.stack8s.com"
+      host: "mysql.example.com"
       port: 3306
       auth:
         username: kubeflow
@@ -1711,7 +1763,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.rcluster.stack8s.com"
+      host: "mysql.example.com"
       port: 3306
       auth:
         username: kubeflow

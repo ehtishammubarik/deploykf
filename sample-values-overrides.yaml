@@ -22,39 +22,20 @@ deploykf_dependencies:
   ##             cert-manager
   ## --------------------------------------
   cert_manager:
-     # <-- REMOVE THIS, IF YOU INCLUDE VALUES UNDER THIS SECTION!
+    {} # <-- REMOVE THIS, IF YOU INCLUDE VALUES UNDER THIS SECTION!
 
     ## extra manifests
     ##  - https://www.deploykf.org/guides/platform/deploykf-gateway/#step-2-create-a-clusterissuer
     ##
-    extraManifests:
-     - |
-       apiVersion: v1
-       kind: Secret
-       metadata:
-         name: cloudflare-api-token-cert
-         namespace: cert-manager
-       type: Opaque
-       stringData:
-         api-token: yoHRHp4Ey-tINSH8m8voXjdNV1PTeLQTAXmzIFjo
-       ---
-       apiVersion: cert-manager.io/v1
-       kind: ClusterIssuer
-       metadata:
-         name: my-cluster-issuer
-       spec:
-         acme:
-            email: ehtisham.m7@gmail.com
-            server: https://acme-v02.api.letsencrypt.org/directory
-            privateKeySecretRef:
-              name: cluster-issuer-account-key
-            solvers:
-            - dns01:
-                cloudflare:
-                  email: yoHRHp4Ey-tINSH8m8voXjdNV1PTeLQTAXmzIFjo
-                  apiTokenSecretRef:
-                    name: cloudflare-api-token
-                    key: api-token
+    #extraManifests:
+    #  - |
+    #    apiVersion: cert-manager.io/v1
+    #    kind: ClusterIssuer
+    #    metadata:
+    #      name: my-cluster-issuer
+    #    spec:
+    #      acme:
+    #        << YOUR ACME CONFIGURATION >>
 
     ## istio gateway certificate issuer configs
     ##  - https://www.deploykf.org/guides/platform/deploykf-gateway/#step-3-configure-the-istio-gateway

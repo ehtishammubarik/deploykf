@@ -236,7 +236,7 @@ deploykf_core:
     ## istio gateway configs
     ##
     gateway:
-      hostname: deploykf.rcluster.stack8s.com
+      hostname: deploykf.example.com
       ports:
         http: 8080
         https: 8443
@@ -534,7 +534,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.rcluster.stack8s.com"
+      host: "mysql.example.com"
       port: 3306
       auth:
         username: kubeflow
@@ -616,7 +616,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.rcluster.stack8s.com"
+      host: "mysql.example.com"
       port: 3306
       auth:
         username: kubeflow
