@@ -436,13 +436,13 @@ deploykf_core:
       ##     - python -c 'import bcrypt; print(bcrypt.hashpw(b"PASSWORD_STRING", bcrypt.gensalt(10)).decode())'
       ##
       staticPasswords:
-        - email: "admin@example.com"
+        - email: "admin@stack8s.com"
           password:
             value: "admin"
-        - email: "user1@example.com"
+        - email: "user1@stack8s.com"
           password:
             value: "user1"
-        - email: "user2@example.com"
+        - email: "user2@stack8s.com"
           password:
             value: "user2"
 
@@ -650,7 +650,7 @@ deploykf_core:
     gateway:
       name: deploykf-gateway
 
-      hostname: deploykf.example.com
+      hostname: deploykf.stack8s.com
       ports:
         http: 80
         https: 443
@@ -743,7 +743,7 @@ deploykf_core:
       ##  - [WARNING] changing the `ownerEmail` of profiles requires ~manual~ steps
       ##              https://github.com/kubeflow/kubeflow/issues/6576
       ##
-      ownerEmail: "admin@example.com"
+      ownerEmail: "admin@stack8s.com"
 
       ## the default access for members of profiles, when not explicitly specified
       ##  - `role`: the Kubernetes RBAC role to bind to the user in the profile namespace
@@ -834,9 +834,9 @@ deploykf_core:
     ##
     users:
       - id: user-1
-        email: "user1@example.com"
+        email: "user1@stack8s.com"
       - id: user-2
-        email: "user2@example.com"
+        email: "user2@stack8s.com"
 
     ## group entities
     ##  - a list of groups that can be referenced when defining profile members
@@ -1294,7 +1294,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.example.com"
+      host: "mysql.stack8s.com"
       port: 3306
       auth:
         username: kubeflow
@@ -1763,7 +1763,7 @@ kubeflow_tools:
     ##
     mysql:
       useExternal: false
-      host: "mysql.example.com"
+      host: "mysql.stack8s.com"
       port: 3306
       auth:
         username: kubeflow

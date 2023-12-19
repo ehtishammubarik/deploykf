@@ -24,7 +24,7 @@ defaultConfig:
   ##   fails to translate the already open TCP socket, causing the application to misbehave
   ## - example 2: the application attempts to access the gateway via a hostname which is not actually resolvable
   ##   on the cluster's DNS, for example, when we use the istio "DNS Proxying" feature to expose the gateway within
-  ##   the mesh at deploykf.example.com, which we do not control on the public internet, so is unlikely
+  ##   the mesh at deploykf.stack8s.com, which we do not control on the public internet, so is unlikely
   ##   to successfully resolve on the cluster's DNS
   holdApplicationUntilProxyStarts: true
 {{<- end >}}

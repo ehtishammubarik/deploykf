@@ -105,7 +105,7 @@ deploykf_core:
     ##  - https://www.deploykf.org/guides/platform/deploykf-gateway/#2-configure-dns
     ##
     #gateway:
-    #  hostname: deploykf.example.com
+    #  hostname: deploykf.stack8s.com
     #  ports:
     #    http: 80
     #    https: 443
@@ -165,9 +165,9 @@ deploykf_core:
     ##
     #users:
     #  - id: user-1
-    #    email: "user1@example.com"
+    #    email: "user1@stack8s.com"
     #  - id: user-2
-    #    email: "user2@example.com"
+    #    email: "user2@stack8s.com"
 
     ## group entities
     ##  - https://www.deploykf.org/guides/platform/deploykf-profiles/#group-entities
@@ -240,7 +240,7 @@ kubeflow_tools:
     ##
     #mysql:
     #  useExternal: true
-    #  host: "mysql.example.com"
+    #  host: "mysql.stack8s.com"
     #  port: 3306
     #  auth:
     #    #username: kubeflow
@@ -344,7 +344,7 @@ kubeflow_tools:
     ##
     #mysql:
     #  useExternal: true
-    #  host: "mysql.example.com"
+    #  host: "mysql.stack8s.com"
     #  port: 3306
     #  auth:
     #    #username: kubeflow

@@ -77,7 +77,7 @@ metadata:
 spec:
   action: DENY
   rules:
-    ## deny requests with "kubeflow-userid" header set to "admin@example.com" if they do not come from safe sources
+    ## deny requests with "kubeflow-userid" header set to "admin@stack8s.com" if they do not come from safe sources
     - from:
         - source:
             notPrincipals:
